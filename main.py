@@ -1,12 +1,28 @@
 import os
 
+from utils.password_checker import check_password_strength
+from utils.password_generator import generate_password
+from utils.hash_generator import hash_generator
+
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
 
 def show_menu():
-    print("=" * 50)
-    print("        CYBER SECURITY TOOLKIT")
+    print(
+        r"""
+ ██████╗██╗   ██╗██████╗ ███████╗██████╗
+██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗
+██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝
+██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗
+╚██████╗   ██║   ██████╔╝███████╗██║  ██║
+ ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝
+
+        Cyber Security Toolkit
+              Version 1.0
+"""
+    )
+
     print("=" * 50)
     print("1. Password Strength Checker")
     print("2. Password Generator")
@@ -20,17 +36,32 @@ def show_menu():
     print("=" * 50)
 
 
-while True:
+def main():
+    while True:
+        clear_screen()
+        show_menu()
 
-    clear_screen()
+        choice = input("Select an option: ")
 
-    show_menu()
+        if choice == "1":
+            clear_screen()
+            check_password_strength()
 
-    choice = input("Select an option: ")
+        elif choice == "2":
+            clear_screen()
+            generate_password()
 
-    if choice == "9":
-        print("\nGoodbye!")
-        break
+        elif choice == "3":
+            clear_screen()
+            hash_generator()
 
-    else:
-        input("\nThis module is under development. Press Enter...")
+        elif choice == "9":
+            print("\nGoodbye!")
+            break
+
+        else:
+            input("\nThis module is under development. Press Enter...")
+
+
+if __name__ == "__main__":
+    main()
