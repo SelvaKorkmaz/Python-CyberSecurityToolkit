@@ -7,6 +7,7 @@ from utils.port_scanner import port_scanner
 from utils.base64_tool import base64_tool
 from utils.caesar_cipher import caesar_cipher
 from utils.url_checker import url_checker
+from utils.phishing_detector import phishing_detector
 
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
@@ -35,7 +36,8 @@ def show_menu():
     print("5. Base64 Tool")
     print("6. Caesar Cipher")
     print("7. URL Security Checker")
-    print("8. Exit")
+    print("8. Phishing Detector")
+    print("9. Exit")
     print("=" * 50)
 
 
@@ -75,6 +77,10 @@ def main():
             url_checker()
 
         elif choice == "8":
+            clear_screen()
+            phishing_detector()
+
+        elif choice == "9":
             print("\nGoodbye!")
             break
 
