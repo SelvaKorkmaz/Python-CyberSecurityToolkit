@@ -19,37 +19,37 @@ function App() {
       icon: "🔒",
       title: "Hash Oluşturucu",
       desc: "MD5 ve SHA256 hash değerleri üretin.",
-      path: "#",
+      path: "/hash-generator",
     },
     {
       icon: "🌐",
       title: "Port Tarayıcı",
       desc: "Hedef sistemde açık portları tarayın.",
-      path: "#",
+      path: null,
     },
     {
       icon: "📄",
       title: "Base64 Aracı",
       desc: "Encode ve Decode işlemlerini gerçekleştirin.",
-      path: "#",
+      path: "/base64-tool",
     },
     {
       icon: "🔐",
       title: "Caesar Şifreleme",
       desc: "Metinleri Caesar algoritması ile şifreleyin.",
-      path: "#",
+      path: "/caesar-cipher",
     },
     {
       icon: "⚠️",
       title: "URL Güvenlik Kontrolü",
       desc: "Bağlantıları analiz ederek risk seviyesini belirleyin.",
-      path: "#",
+      path: "/url-checker",
     },
     {
       icon: "📧",
       title: "Phishing Tespit Aracı",
       desc: "Şüpheli e-posta ve bağlantıları analiz edin.",
-      path: "#",
+      path: "/phishing-detector",
     },
   ];
 
@@ -67,10 +67,13 @@ function App() {
             <h3>{tool.title}</h3>
             <p>{tool.desc}</p>
 
-            <Link to={tool.path}>
-              <button>Aracı Aç</button>
-            </Link>
-
+            {tool.path ? (
+              <Link to={tool.path}>
+                <button>Aracı Aç</button>
+              </Link>
+            ) : (
+              <button disabled>Yakında</button>
+            )}
           </div>
         ))}
       </div>

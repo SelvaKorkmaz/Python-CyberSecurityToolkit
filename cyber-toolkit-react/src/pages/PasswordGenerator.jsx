@@ -20,6 +20,11 @@ function PasswordGenerator() {
     setPassword(result);
   };
 
+  const copyPassword = () => {
+    navigator.clipboard.writeText(password);
+    alert("Şifre panoya kopyalandı!");
+  };
+
   return (
     <div className="password-page">
       <div className="password-card">
@@ -32,21 +37,25 @@ function PasswordGenerator() {
           min="4"
           max="50"
           value={length}
-          onChange={(e) => setLength(e.target.value)}
+          onChange={(e) => setLength(Number(e.target.value))}
         />
 
         <button onClick={generatePassword}>
           Şifre Oluştur
         </button>
 
+        <div className="result-box">
+          {password || "Henüz şifre oluşturulmadı"}
+        </div>
+
         {password && (
-          <h2 style={{ marginTop: "20px" }}>
-            {password}
-          </h2>
+          <button onClick={copyPassword}>
+            📋 Kopyala
+          </button>
         )}
 
         <Link to="/">
-          <button style={{ marginTop: "15px" }}>
+          <button>
             ← Ana Sayfaya Dön
           </button>
         </Link>
