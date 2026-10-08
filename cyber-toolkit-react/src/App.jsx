@@ -25,7 +25,7 @@ function App() {
       icon: "🌐",
       title: "Port Tarayıcı",
       desc: "Hedef sistemde açık portları tarayın.",
-      path: null,
+      path: "/port-scanner",
     },
     {
       icon: "📄",

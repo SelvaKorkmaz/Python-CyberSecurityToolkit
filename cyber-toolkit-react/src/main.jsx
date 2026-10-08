@@ -11,6 +11,7 @@ import Base64Tool from "./pages/Base64Tool.jsx";
 import CaesarCipher from "./pages/CaesarCipher.jsx";
 import UrlChecker from "./pages/UrlChecker.jsx";
 import PhishingDetector from "./pages/PhishingDetector.jsx";
+import PortScanner from "./pages/PortScanner.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/caesar-cipher" element={<CaesarCipher />} />
         <Route path="/url-checker" element={<UrlChecker />} />
         <Route path="/phishing-detector" element={<PhishingDetector />} />
+        <Route path="/port-scanner" element={<PortScanner />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,

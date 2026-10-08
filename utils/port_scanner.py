@@ -1,26 +1,28 @@
 import socket
 
-
-def port_scanner():
-    print("=" * 55)
-    print("                 PORT SCANNER")
-    print("=" * 55)
-
-    target = input("\nEnter IP Address: ")
-
+def scan_ports(target):
     common_ports = [21, 22, 23, 25, 53, 80, 110, 143, 443]
 
-    print(f"\nScanning {target}...\n")
+    open_ports = []
 
     for port in common_ports:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(0.5)
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(0.5)
 
-        result = sock.connect_ex((target, port))
+            result = sock.connect_ex((target, port))
 
-        if result == 0:
-            print(f"Port {port} OPEN")
+            if result == 0:
+                service = socket.getservbyport(port, "tcp")
 
-        sock.close()
+                open_ports.append({
+                    "port": port,
+                    "service": service.upper()
+                })
 
-    input("\nPress Enter to return...")
+            sock.close()
+
+        except:
+            pass
+
+    return open_ports
