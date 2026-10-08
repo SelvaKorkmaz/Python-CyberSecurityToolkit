@@ -1,10 +1,26 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-createRoot(document.getElementById('root')).render(
+import "./index.css";
+import App from "./App.jsx";
+import PasswordChecker from "./pages/PasswordChecker.jsx";
+import PasswordGenerator from "./pages/PasswordGenerator.jsx";
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route
+          path="/password-checker"
+          element={<PasswordChecker />}
+        />
+        <Route
+          path="/password-generator"
+          element={<PasswordGenerator />}
+        />
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+);
