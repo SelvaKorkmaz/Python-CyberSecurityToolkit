@@ -16,5 +16,3 @@ Technologies:
 - base64
 - urllib
 
-Author:
-Selva Korkmaz
